@@ -135,12 +135,17 @@ if st.session_state.notes:
         data=st.session_state.notes.strip(),
         file_name="notes.md"
     )
+    
     markdown_content = st.session_state.notes.strip()
-
     pdf = MarkdownPdf()
     pdf.add_section(Section(markdown_content))
-    pdf_bytes = pdf.save_to_bytes()
-    
+
+    # Use a temporary file to store the PDF
+    with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmpfile:
+        pdf.save(tmpfile.name)
+        tmpfile.seek(0)
+        pdf_bytes = tmpfile.read()
+        
     st.download_button(
         "⬇️ Download as PDF",
         data=pdf_bytes,
