@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 load_dotenv(dotenv_path=".env.txt")
 
 # Retrieve API key from environment variables
-os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY")
+# os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY")
 
 # Load embeddings model
 embedding_model = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
