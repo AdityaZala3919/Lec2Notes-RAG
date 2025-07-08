@@ -1,8 +1,8 @@
-+faiss-cpu
-+langchain>=0.1.17
-+langchain-community>=0.0.24
-+langchain-core>=0.1.44
-+streamlit
+faiss-cpu
+langchain>=0.1.17
+langchain-community>=0.0.24
+langchain-core>=0.1.44
+streamlit
 google-generativeai>=0.3.2
 langchain-google-genai>=0.0.9
 markdown2
