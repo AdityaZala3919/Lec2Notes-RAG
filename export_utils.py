@@ -3,7 +3,6 @@ import markdown2
 import io
 import os
 
-# Optional: configure path to wkhtmltopdf (Windows only)
 config = pdfkit.configuration(wkhtmltopdf=r"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe")
 
 def export_markdown(notes: str) -> str:
