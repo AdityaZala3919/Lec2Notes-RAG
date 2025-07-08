@@ -1,3 +1,4 @@
+tempfile
 faiss-cpu
 langchain>=0.1.17
 langchain-community>=0.0.24
