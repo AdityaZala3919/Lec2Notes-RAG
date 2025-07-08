@@ -1,6 +1,3 @@
-# prompts.py
-
-# Use PromptTemplate from langchain to ensure compatibility
 from langchain.prompts import PromptTemplate
 
 def get_prompt_template(format_type, custom_prompt=""):
