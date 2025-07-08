@@ -4,6 +4,7 @@ from prompts import get_prompt_template
 from rag_pipeline import generate_notes, chat_with_transcript
 from dotenv import load_dotenv
 from markdown_pdf import MarkdownPdf, Section
+import tempfile
 import os
 
 st.set_page_config(page_title="RAG-Powered Lecture Summaries", layout="centered")
