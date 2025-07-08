@@ -1,5 +1,3 @@
-# transcript_loader.py
-
 import pdfplumber
 import re
 from typing import IO
