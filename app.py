@@ -4,7 +4,6 @@ from prompts import get_prompt_template
 from rag_pipeline import generate_notes, chat_with_transcript
 from dotenv import load_dotenv
 from markdown_pdf import MarkdownPdf, Section
-import tempfile
 import os
 
 st.set_page_config(page_title="RAG-Powered Lecture Summaries", layout="centered")
@@ -141,11 +140,9 @@ if st.session_state.notes:
     pdf = MarkdownPdf()
     pdf.add_section(Section(markdown_content))
 
-    # Use a temporary file to store the PDF
-    with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmpfile:
-        pdf.save(tmpfile.name)
-        tmpfile.seek(0)
-        pdf_bytes = tmpfile.read()
+    pdf.save("temp.pdf")
+    with open(pdf_path, "rb") as f:
+        pdf_bytes = f.read()
         
     st.download_button(
         "⬇️ Download as PDF",
