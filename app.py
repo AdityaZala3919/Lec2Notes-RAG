@@ -3,6 +3,7 @@ from transcript_loader import load_transcript
 from prompts import get_prompt_template
 from rag_pipeline import generate_notes, chat_with_transcript
 from dotenv import load_dotenv
+from markdown_pdf import MarkdownPdf, Section
 import os
 
 st.set_page_config(page_title="RAG-Powered Lecture Summaries", layout="centered")
@@ -133,6 +134,17 @@ if st.session_state.notes:
         "⬇️ Download as Markdown",
         data=st.session_state.notes.strip(),
         file_name="notes.md"
+    )
+    markdown_content = st.session_state.notes.strip()
+
+    pdf = MarkdownPdf()
+    pdf.add_section(Section(markdown_content))
+    pdf_bytes = pdf.save_to_bytes()
+    
+    st.download_button(
+        "⬇️ Download as PDF",
+        data=pdf_bytes,
+        file_name="notes.pdf"
     )
 
 # Chat Interface
