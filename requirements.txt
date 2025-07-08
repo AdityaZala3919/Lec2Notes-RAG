@@ -1,0 +1,11 @@
+# requirements.txt
+
+streamlit
+langchain>=0.1.17
+chromadb>=0.4.24
+google-generativeai>=0.3.2
+langchain-google-genai>=0.0.9
+fpdf
+pdfplumber
+pymongo
+python-dotenv
