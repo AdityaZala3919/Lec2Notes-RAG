@@ -1,4 +1,4 @@
-from langchain_community.vectorstores import Chroma
+from langchain.vectorstores import FAISS
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.chains import RetrievalQA
@@ -22,11 +22,8 @@ def chunk_text(text, chunk_size=1000, chunk_overlap=200):
     splitter = RecursiveCharacterTextSplitter(chunk_size=chunk_size, chunk_overlap=chunk_overlap)
     return splitter.split_documents([Document(page_content=text)])
 
-# Initialize Chroma DB
-VECTORDB_DIR = tempfile.mkdtemp()
-
 def get_vectorstore(docs):
-    vectorstore = Chroma.from_documents(docs, embedding=embedding_model, persist_directory=VECTORDB_DIR)
+    vectorstore = FAISS.from_documents(docs, embedding=embedding_model)
     return vectorstore
 
 # Initialize Gemini LLM
