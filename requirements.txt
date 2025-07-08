@@ -1,5 +1,3 @@
-# requirements.txt
-
 streamlit
 langchain>=0.1.17
 langchain-community>=0.0.24
@@ -7,8 +5,8 @@ langchain-core>=0.1.44
 chromadb>=0.4.24
 google-generativeai>=0.3.2
 langchain-google-genai>=0.0.9
+markdown2
 pdfkit
 fpdf
 pdfplumber
-pymongo
 python-dotenv
