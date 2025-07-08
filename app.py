@@ -58,7 +58,7 @@ with st.sidebar:
     st.markdown("""
     - [Streamlit Documentation](https://docs.streamlit.io/)
     - [Learn About RAG](https://python.langchain.com/docs/tutorials/rag/)
-    - [GitHub Repository](https://github.com/AdityaZala3919/RAG-based-Lecture-Notes-Generator-from-Transcript)
+    - [GitHub Repository](https://github.com/AdityaZala3919/Lec2Notes-RAG)
     """)
 
     # Feedback Section
