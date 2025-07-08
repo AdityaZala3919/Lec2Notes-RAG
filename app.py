@@ -141,7 +141,7 @@ if st.session_state.notes:
     pdf.add_section(Section(markdown_content))
 
     pdf.save("temp.pdf")
-    with open(pdf_path, "rb") as f:
+    with open("temp.pdf", "rb") as f:
         pdf_bytes = f.read()
         
     st.download_button(
