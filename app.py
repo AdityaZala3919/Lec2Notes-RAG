@@ -2,7 +2,6 @@ import streamlit as st
 from transcript_loader import load_transcript
 from prompts import get_prompt_template
 from rag_pipeline import generate_notes, chat_with_transcript
-from export_utils import export_markdown, export_pdf
 from dotenv import load_dotenv
 import os
 
@@ -130,8 +129,11 @@ if st.session_state.notes:
     st.markdown("### 📄 Generated Notes:")
     st.markdown(st.session_state.notes)
 
-    st.download_button("⬇️ Download as Markdown", export_markdown(st.session_state.notes), file_name="notes.md")
-    st.download_button("⬇️ Download as PDF", export_pdf(st.session_state.notes), file_name="notes.pdf")
+    st.download_button(
+        "⬇️ Download as Markdown",
+        data=st.session_state.notes.strip(),
+        file_name="notes.md"
+    )
 
 # Chat Interface
 if st.session_state.retriever:
