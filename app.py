@@ -1,5 +1,3 @@
-# app.py
-
 import streamlit as st
 from transcript_loader import load_transcript
 from prompts import get_prompt_template
