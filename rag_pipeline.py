@@ -4,7 +4,6 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.chains import RetrievalQA
 from langchain_core.documents import Document
 from langchain_google_genai import ChatGoogleGenerativeAI
-import tempfile
 import os
 from dotenv import load_dotenv
 
