@@ -1,6 +1,6 @@
 from langchain.vectorstores import FAISS
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain.text_splitter import TokenTextSplitter
 from langchain.chains import RetrievalQA
 from langchain_core.documents import Document
 from langchain_google_genai import ChatGoogleGenerativeAI
@@ -18,7 +18,7 @@ embedding_model = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
 
 # Text chunking function
 def chunk_text(text, chunk_size=1000, chunk_overlap=200):
-    splitter = RecursiveCharacterTextSplitter(chunk_size=chunk_size, chunk_overlap=chunk_overlap)
+    splitter = TokenTextSplitter(chunk_size=chunk_size, chunk_overlap=chunk_overlap)
     return splitter.split_documents([Document(page_content=text)])
 
 def get_vectorstore(docs):
