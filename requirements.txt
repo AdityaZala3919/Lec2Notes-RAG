@@ -8,3 +8,4 @@ langchain-google-genai>=0.0.9
 markdown-pdf
 python-dotenv
 pdfplumber
+tiktoken
