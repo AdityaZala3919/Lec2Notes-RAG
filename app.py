@@ -166,7 +166,15 @@ if st.session_state.retriever:
         with st.chat_message("user"):
             st.markdown(user_input)
         with st.spinner("Thinking..."):
-            response = chat_with_transcript(user_input, st.session_state.retriever)
+            # Pass chat_history and notes context to chat_with_transcript
+            response, updated_history = chat_with_transcript(
+                user_input,
+                st.session_state.retriever,
+                chat_history=st.session_state.get("raw_chat_history", []),
+                notes_context=st.session_state.notes
+            )
+        # Store formatted response for display, and raw history for context
         st.session_state.chat_history.append({"user": user_input, "bot": response})
+        st.session_state.raw_chat_history = updated_history
         with st.chat_message("assistant"):
             st.markdown(response)
